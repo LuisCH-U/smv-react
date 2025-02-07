@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Definir los colores del gradiente -->
+  <defs>
+    <linearGradient id="petalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4B5C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D40040;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Pétalos de la rosa -->
+  <path d="M100,40 C130,30 160,50 150,80 C140,110 100,110 90,80 C80,50 70,30 100,40" fill="url(#petalGradient)" />
+  <path d="M100,40 C70,30 40,50 50,80 C60,110 100,110 110,80 C120,50 130,30 100,40" fill="url(#petalGradient)" />
+  <path d="M100,60 C130,50 160,70 150,100 C140,130 100,130 90,100 C80,70 70,50 100,60" fill="url(#petalGradient)" />
+  <path d="M100,60 C70,50 40,70 50,100 C60,130 100,130 110,100 C120,70 130,50 100,60" fill="url(#petalGradient)" />
+  
+  <path d="M100,80 C130,70 160,90 150,120 C140,150 100,150 90,120 C80,90 70,70 100,80" fill="url(#petalGradient)" />
+  <path d="M100,80 C70,70 40,90 50,120 C60,150 100,150 110,120 C120,90 130,70 100,80" fill="url(#petalGradient)" />
+  
+  <!-- Centro de la rosa -->
+  <circle cx="100" cy="100" r="25" fill="url(#centerGradient)" />
+  
+  <!-- Detalles en el centro de la rosa -->
+  <circle cx="100" cy="100" r="10" fill="#FF6347" />
+  <circle cx="100" cy="100" r="5" fill="#8B0000" />
+  
+  <!-- Tallo y hojas -->
+  <rect x="95" y="120" width="10" height="50" fill="#228B22" />
+  <ellipse cx="80" cy="150" rx="25" ry="12" fill="#228B22" />
+  <ellipse cx="120" cy="150" rx="25" ry="12" fill="#228B22" />
+</svg>
