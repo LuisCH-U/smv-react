@@ -14,28 +14,29 @@ function App() {
   const [buttonPosition, setButtonPosition] = useState({ left: '0px', top: '0px' });
   const [moved, setMoved] = useState(false);
 
-  const yesButtonClick = async () => {
-    setIsModalOpenYes(true);
-
-    
+  const sendEmail = async (response: 'S' | 'N')  =>{
     try {
       const result = await emailjs.send('service_ushk2wj', 'template_93hvbya', {
         to_email: 'luis13chipana@gmail.com',
         subject: 'Confirmación de San Valentín',
-        message: 'El usuario ha aceptado la invitación para San Valentín.',
+        message: `El usuario ha ${response === 'S' ? 'aceptado' : 'rechazado'}  la invitación para San Valentín.`,
       }, 'QOugaMUZL3PTNzB0q');
-
       console.log('Correo enviado:', result.text);
     } catch (error) {
       console.error('Error al enviar el correo:', error);
     }
   }
 
+  const yesButtonClick = async () => {
+    setIsModalOpenYes(true);
+    sendEmail('S');
+  }
+
   const noButtonClick = () => {
     if (!moved) {
       setMoved(true)
     }
-
+    sendEmail('N');
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
 
