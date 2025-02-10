@@ -13,6 +13,64 @@ function App() {
   const [isModalOpenNo, setIsModalOpenNo] = useState(false)
   const [buttonPosition, setButtonPosition] = useState({ left: '0px', top: '0px' });
   const [moved, setMoved] = useState(false);
+  const [buttonIndex, setButtonIndex] = useState(0);
+  const buttonTexts = [
+    'No 😥', '¿Estás segura? ☹',
+    'Piénsalo de nuevo 🤔', '¿Segura que no? 😩',
+    'Si dices que sí 😉', 'Ya lo pensaste bien? 🙁',
+    '¿Qué dices? 😣', 'Nunca le pedí a alguien esto 😔',
+    '¿Segura que no? 😕', 'No se acabarán las palabras 🙄',
+    'Piénsalo, aún hay más frases 🤭', 'Sigues diciendo no 🤔',
+    'Te vas a cansar 🤭', 'Lo programé con más de 10 mil caracteres 🙄',
+    'Se seguirá moviendo más 😄', 'Y se movió otra vez 🙃',
+    'Ya lo volviste a pensar...?', 'Si presionas "Sí", el bucle se termina 🤭',
+    'Presionaste otra vez "No"...🥺', 'Se acabarán mis palabras 😣',
+    '¿Qué más te diría para que digas que sí? 😩',
+    'Mi paciencia es infinita 😌', 'No me rendiré 😏', 'Voy a seguir aquí hasta que digas que sí 😆',
+    '¿No sientes un poquito de curiosidad? 👀', 'Me estás haciendo sufrir 😭',
+    '¿Y si mejor intentamos? 😏', 'Si dices que sí, prometo que seré muy feliz 🥰',
+    'Solo un pequeño "Sí", no hace daño 😜', 'Voy a seguir insistiendo 😆', 'No te arrepentirás 😉',
+    'Una vez más, ¿segura? 🤨', 'Acepto terminos y condiciones 😇',
+    '¿Qué tal si probamos dando en el Si? ', 'Solo una respuesta y todo cambiará ✨',
+    'Imagina lo bonito que sería', '¿Me dirás que sí en la próxima? 😏',
+    '¿Te estoy convenciendo un poquito? 🙃', 'Voy a insistir un poco +',
+    'Esto es más persistente que el Wi-Fi de la NASA 🚀',
+    'Merezco un "sí" solo por el esfuerzo, ¿no? 😂', 'Dicen que la paciencia tiene recompensa 😌',
+    'Si sigues diciendo no, el botón explotará 💥 (broma) 🤭',
+    'Voy a seguir aquí, esperando... ⏳', '¡Un "Sí" y te hago reír! 😂',
+    '¿Sabías que decir "Sí" trae buena suerte? 🍀', 'Ya no sé qué más escribir, pero quiero un "Sí" 😅',
+    'Última oportunidad... (mentira, seguiré insistiendo) 😆',
+    'El botón está triste por tantos "No" 😢', 'Si sigues presionando "No",...................',
+    'Cuidado... si sigues diciendo "No", me volveré poeta ✍️😂',
+    'Estoy usando todas mis líneas de código para convencerte 😏',
+    'Solo di "Sí" y prometo que será la mejor decisión',
+    'Imagina qué pasará si presionas "Sí"... (spoiler: algo bonito)',
+    'Mi paciencia es más fuerte que tu resistencia 😌', 'Voy a seguir aquí, hasta el infinito ♾️',
+    'Dale una oportunidad, ¿qué es lo peor que podría pasar? 😜',
+    'Este botón también quiere que digas que sí 😆',
+    'Estás a un "Sí" de hacerme la persona más feliz del mundo',
+    '¿Y si el destino nos está guiando? 💫', '¡Última oportunidad!... Ok, mentira, seguiré insistiendo 😂',
+    '¡Estoy programado para convencerte! 🤖', '¿Qué harías si este fuera el último "No"? 🥺',
+    'Acepto tus condiciones, pero solo si dices "Sí" 😏',
+    '¡Dame una oportunidad y te sorprenderé! ✨',
+    'Cada "No" que presionas, una estrella se apaga 🌟😂',
+    '¿Sabías que decir "Sí" quema calorías? 💪🤣', 'Este botón ya quiere jubilarse, di "Sí" 😂',
+    'Si llegaste hasta aquí, es porque en el fondo quieres decir "Sí" 😏',
+    'Voy a seguir insistiendo, aunque pasen los años 😆', 'Cada "No" es un mini-infarto para mí 💔',
+    '¿Te imaginas que al final digas "Sí"? Qué bonito sería',
+    'El código no se detendrá hasta que aceptes 💻😏',
+    'Una palabra, tres letras, cambia todo... 🤗', 'Tómate tu tiempo, pero recuerda: "Sí" es una linda palabra 😊',
+    'Los códigos dicen que el "Sí" es el camino correcto 🖥️✨',
+    'No quiero presionarte... pero sí quiero que digas "Sí" 😆',
+    'Voy a seguir aquí, esperando pacientemente ⏳', 'Soy más terco que el Wi-Fi en la lluvia ☔😂',
+    '¿Qué tal si pruebas decir "Sí" solo una vez? 😜',
+    'Cada "No" hace que escriba más frases... 😏', 'Al menos considera la posibilidad... 😚',
+    'Voy a seguir intentándolo hasta el final 😆',
+    'Si has leído hasta aquí, mereces una recompensa 🏆 (un "Sí" sería perfecto 🤭)',
+    'Cada "No" me da más ganas de seguir 💪😏', '¿No te cansas de presionar "No"? 😆',
+    'El algoritmo ya predijo que terminarás diciendo "Sí" 😂', 'Dale un "Sí", esto es para mas... ✨',
+];
+
 
   const sendEmail = async (response: 'S' | 'N')  =>{
     try {
@@ -34,15 +92,17 @@ function App() {
 
   const noButtonClick = () => {
     if (!moved) {
-      setMoved(true)
+      setMoved(true);
     }
-    sendEmail('N');
+    //sendEmail('N');
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
 
     const newLeft = Math.random() * (windowWidth - 100);
     const newTop = Math.random() * (windowHeight - 50); 
     setButtonPosition({ left: `${newLeft}px`, top: `${newTop}px` });
+
+    setButtonIndex((prevIndex) => (prevIndex + 1) % buttonTexts.length);
   }
 
   const closeModal = () => {
@@ -53,7 +113,7 @@ function App() {
   return (
     <div >
         <div>
-          <a href="https://www.youtube.com/watch?v=MiAoetOXKcY&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMMiAoetOXKcY&start_radio=1" target="_blank">
+          {/*<a href="https://www.youtube.com/watch?v=MiAoetOXKcY&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMMiAoetOXKcY&start_radio=1" target="_blank">
             <img src={flowerLogo} className="logo flower" alt="flower logo" />
           </a>
           <a href="https://www.youtube.com/watch?v=MiAoetOXKcY&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMMiAoetOXKcY&start_radio=1" target="_blank">
@@ -61,7 +121,7 @@ function App() {
           </a>
           <a href="https://www.youtube.com/watch?v=VPRjCeoBqrI&list=RDVPRjCeoBqrI&start_radio=1" target="_blank">
             <img src={roseLogo} className="logo rose" alt="flower de rosa" />
-          </a>
+          </a>*/}
           <a href="https://www.youtube.com/watch?v=MiAoetOXKcY&list=RDGMEM6ijAnFTG9nX1G-kbWBUCJAVMMiAoetOXKcY&start_radio=1" target="_blank">
             <img src={vacatioLogo} className="logo flower" alt="vacation logo" />
           </a>
@@ -75,7 +135,7 @@ function App() {
             <iframe 
               width="560" 
               height="315" 
-              src="https://www.youtube.com/embed/1w369oiQYbI" 
+              src="https://www.youtube.com/embed/0b3bZqCterA" 
               title="YouTube video player" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -83,18 +143,18 @@ function App() {
             ></iframe>
           </div>
         </div>
-        <h1>Quieres ser mi San Valentín</h1>
-        <h3>Quieres pasar un dia diferente en un viaje o Full day a Laraos.</h3>
+        <h1>Ruth María, en este San Valentín quiero regalarte más que palabras.</h1>
+        <h3>Quiero regalarte un día especial, un viaje a Laraos, donde el viento nos cuente historias y el paisaje sea el marco de un recuerdo inolvidable. ¿Me acompañas? ✨</h3>
         <div className="card" style={{ textAlign: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
             <button onClick={yesButtonClick} style={{ marginRight: '10px' }}>
-              ¡Sí, me encantaría! 💖
+              ¡Sí 🤗!
             </button>
             <button 
               onClick={noButtonClick} 
               style={{ position: moved ? 'absolute' : 'relative', left: buttonPosition.left, top: buttonPosition.top }}
             >
-              No 😥
+              {buttonTexts[buttonIndex]}
             </button>
           </div>
           <p>
