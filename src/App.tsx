@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import flowerLogo from './assets/flower_icon_232533.svg'
-import roseLogo from './assets/rose_icon.svg'
 import vacatioLogo from './assets/vacation_icon.svg'
-import travelLogo from './assets/travelicon.svg'
 import emailjs from 'emailjs-com'
 
 import './App.css'
