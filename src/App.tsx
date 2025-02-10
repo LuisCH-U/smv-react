@@ -141,7 +141,7 @@ function App() {
             ></iframe>
           </div>
         </div>
-        <h1>Ruth María, en este San Valentín quiero regalarte más que palabras.</h1>
+        <h1>Ruth, en este San Valentín quiero regalarte más que palabras.</h1>
         <h3>Quiero regalarte un día especial, un viaje a Laraos, donde el viento nos cuente historias y el paisaje sea el marco de un recuerdo inolvidable. ¿Me acompañas? ✨</h3>
         <div className="card" style={{ textAlign: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
