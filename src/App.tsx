@@ -139,7 +139,7 @@ function App() {
           </div>
         </div>
         <h1>Ruth, en este San Valentín quiero regalarte más que palabras.</h1>
-        <h3>✨ Ruth, Dios nos ha regalado un mundo lleno de maravillas, y quiero invitarte a descubrir una de ellas. Imagina un día lejos del ruido, donde el cielo azul nos abrace, el viento acaricie nuestras almas y cada rincón nos recuerde el amor perfecto del Creador. Quiero compartir contigo un viaje donde nuestra fe se fortalezca, nuestra amistad se ilumine y nuestros corazones encuentren paz en la belleza de algun lugar. Que sea un día para agradecer, reír y llenarnos de la presencia de Dios en cada susurro de la naturaleza. ¿Me Acompañas? ✨🙏💙</h3>
+        <h3>✨ Hola Ruth, Dios nos ha regalado un mundo lleno de maravillas, y quiero invitarte a descubrir una de ellas. Imagina un día lejos del ruido, donde el cielo azul nos abrace, el viento acaricie nuestras almas y cada rincón nos recuerde el amor perfecto del Creador. Quiero compartir contigo un viaje donde nuestra fe se fortalezca, nuestra amistad se ilumine y nuestros corazones encuentren paz en la belleza de algun lugar. Que sea un día para agradecer, reír y llenarnos de la presencia de Dios en cada susurro de la naturaleza. ¿Me Acompañas? ✨🙏💙</h3>
         <div className="card" style={{ textAlign: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
             <button onClick={yesButtonClick} style={{ marginRight: '10px' }}>
