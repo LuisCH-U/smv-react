@@ -14,10 +14,8 @@ function App() {
   const [buttonIndex, setButtonIndex] = useState(0);
   const buttonTexts = [
     'No 😥', '¿Estás segura? ☹',
-    'Piénsalo de nuevo 🤔', '¿Segura que no? 😩',
-    'Si dices que sí 😉', 'Ya lo pensaste bien? 🙁',
-    '¿Qué dices? 😣', 'Nunca le pedí a alguien esto 😔',
-    '¿Segura que no? 😕', 'No se acabarán las palabras 🙄',
+    'Piénsalo de nuevo 🤔', '¿Segura que no? 😩', 'Ya lo pensaste bien? 🙁',
+    '¿Qué dices? 😣', '¿Segura que no? 😕', 'No se acabarán las palabras 🙄',
     'Piénsalo, aún hay más frases 🤭', 'Sigues diciendo no 🤔',
     'Te vas a cansar 🤭', 'Lo programé con más de 10 mil caracteres 🙄',
     'Se seguirá moviendo más 😄', 'Y se movió otra vez 🙃',
@@ -142,7 +140,7 @@ function App() {
           </div>
         </div>
         <h1>Ruth, en este San Valentín quiero regalarte más que palabras.</h1>
-        <h3>Quiero regalarte un día especial, un viaje a Laraos, donde el viento nos cuente historias y el paisaje sea el marco de un recuerdo inolvidable. ¿Me acompañas? ✨</h3>
+        <h3>✨ Ruth, Dios nos ha regalado un mundo lleno de maravillas, y quiero invitarte a descubrir una de ellas. Imagina un día lejos del ruido, donde el cielo azul nos abrace, el viento acaricie nuestras almas y cada rincón nos recuerde el amor perfecto del Creador. Quiero compartir contigo un viaje donde nuestra fe se fortalezca, nuestra amistad se ilumine y nuestros corazones encuentren paz en la belleza de algun lugar. Que sea un día para agradecer, reír y llenarnos de la presencia de Dios en cada susurro de la naturaleza. ¿Me Acompañas? ✨🙏💙</h3>
         <div className="card" style={{ textAlign: 'center' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
             <button onClick={yesButtonClick} style={{ marginRight: '10px' }}>

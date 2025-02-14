@@ -5,9 +5,77 @@
     <link rel="icon" href="src/assets/vacation_icon.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feliz San Valentín 😊</title>
+    <link rel="stylesheet" href="/src/app.css">
   </head>
   <body>
     <div id="root"></div>
+    <div class="flower"></div>
+    <div class="vacation"></div>
+    <div class="emoji" style="top: 10%; left: 10%;">😊</div>
+    <div class="emoji" style="top: 20%; left: 30%;">😄</div>
+    <div class="emoji" style="top: 30%; left: 50%;">😍</div>
+    <div class="emoji" style="top: 40%; left: 70%;">😃</div>
+    <div class="emoji" style="top: 50%; left: 90%;">🤭</div>
+    <div class="emoji" style="top: 60%; left: 20%;">😆</div>
+    <div class="emoji" style="top: 70%; left: 40%;">🤗</div>
+    <div class="emoji" style="top: 80%; left: 60%;">😺</div>
+    <div class="emoji" style="top: 90%; left: 80%;">😉</div>
+    <div class="emoji" style="top: 10%; right: 10%;">😊</div>
+    <div class="emoji" style="top: 20%; right: 30%;">😄</div>
+    <div class="emoji" style="top: 30%; right: 50%;">😍</div>
+    <div class="emoji" style="top: 40%; right: 70%;">😃</div>
+    <div class="emoji" style="top: 50%; right: 90%;">🤭</div>
+    <div class="emoji" style="top: 60%; right: 20%;">😆</div>
+    <div class="emoji" style="top: 70%; right: 40%;">🤗</div>
+    <div class="emoji" style="top: 80%; right: 60%;">😺</div>
+    <div class="emoji" style="top: 90%; right: 80%;">😉</div>
+    <script>
+      const emojis = document.querySelectorAll('.emoji');
+      const speed = 2;
+
+      emojis.forEach(emoji => {
+        let dx = (Math.random() * 2 - 1) * speed;
+        let dy = (Math.random() * 2 - 1) * speed;
+
+        function move() {
+          const rect = emoji.getBoundingClientRect();
+
+          if (rect.left + dx < 0 || rect.right + dx > window.innerWidth) {
+            dx = -dx;
+          }
+          if (rect.top + dy < 0 || rect.bottom + dy > window.innerHeight) {
+            dy = -dy;
+          }
+
+          emoji.style.left = rect.left + dx + 'px';
+          emoji.style.top = rect.top + dy + 'px';
+
+          emojis.forEach(otherEmoji => {
+            if (emoji !== otherEmoji) {
+              const otherRect = otherEmoji.getBoundingClientRect();
+              if (
+                rect.left < otherRect.right &&
+                rect.right > otherRect.left &&
+                rect.top < otherRect.bottom &&
+                rect.bottom > otherRect.top
+              ) {
+                emoji.classList.add('flash');
+                otherEmoji.classList.add('flash');
+                setTimeout(() => {
+                  emoji.classList.remove('flash');
+                  otherEmoji.classList.remove('flash');
+                }, 300);
+              }
+            }
+          });
+
+          requestAnimationFrame(move);
+        }
+
+        move();
+      });
+    </script>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
