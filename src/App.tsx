@@ -126,12 +126,11 @@ function App() {
           </a>
         </div>
         <div>
-          {/* Sección para el video de YouTube */}
           <div className="video-container">
             <iframe 
               width="560" 
               height="315" 
-              src="https://www.youtube.com/embed/0b3bZqCterA" 
+              src="https://www.youtube.com/embed/0b3bZqCterA?autoplay=1&mute=0"
               title="YouTube video player" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
